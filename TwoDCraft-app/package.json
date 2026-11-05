@@ -1,0 +1,48 @@
+{
+  "name": "twodcraft",
+  "productName": "TwoDCraft",
+  "version": "1.5.0",
+  "description": "TwoDCraft - 2D sandbox game",
+  "main": "main.js",
+  "author": "TwoDCraft",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.twodcraft.game",
+    "productName": "TwoDCraft",
+    "files": [
+      "main.js",
+      "preload.js",
+      "server.js",
+      "index.html",
+      "icon.png"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": true,
+      "include": "installer.nsh",
+      "language": "1049"
+    }
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
